@@ -18,11 +18,9 @@ export default function Home() {
             <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
               src/app/page.tsx
             </code>
-            .
+            This is login signup
           </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly here is my change.
-          </li>
+          <li className="tracking-[-.01em]">This</li>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
