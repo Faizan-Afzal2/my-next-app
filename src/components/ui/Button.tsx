@@ -13,12 +13,12 @@ export default function Button({
   className = '',
   ...props 
 }: ButtonProps) {
-  const baseClasses = 'font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2'
+  const baseClasses = 'font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring'
   
   const variantClasses = {
-    primary: 'bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500',
-    secondary: 'bg-gray-200 hover:bg-gray-300 text-gray-900 focus:ring-gray-500',
-    danger: 'bg-red-600 hover:bg-red-700 text-white focus:ring-red-500'
+    primary: 'bg-primary hover:bg-primary/90 text-primary-foreground',
+    secondary: 'bg-secondary hover:bg-secondary/80 text-secondary-foreground',
+    danger: 'bg-destructive hover:bg-destructive/90 text-destructive-foreground'
   }
   
   const sizeClasses = {
