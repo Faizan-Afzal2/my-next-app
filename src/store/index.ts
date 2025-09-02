@@ -13,3 +13,4 @@
 
 export { useAppStore } from './app-store';
 export { useCounterStore } from './counter-store';
+export { useUsersStore } from './users-store';

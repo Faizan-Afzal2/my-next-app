@@ -21,6 +21,9 @@ export default function Header() {
             <Link href="/counter" className="text-muted-foreground hover:text-foreground transition-colors">
               Counter
             </Link>
+            <Link href="/api-demo" className="text-muted-foreground hover:text-foreground transition-colors">
+              API Demo
+            </Link>
             <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
               Contact
             </Link>
