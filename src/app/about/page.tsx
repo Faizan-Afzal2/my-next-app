@@ -1,12 +1,28 @@
-import { Container } from '@/components/common/layout';
-import { AboutHero, AboutContent, AboutCTA } from '@/components/pages/about';
+import { Container, Stack } from '@/components/common/layout';
+import { 
+  AboutHero, 
+  AboutContent, 
+  AboutFolderStructure,
+  AboutComponentExamples,
+  AboutBenefits,
+  AboutArchitecture,
+  AboutUsageGuide,
+  AboutCTA 
+} from '@/components/pages/about';
 
 export default function AboutPage() {
   return (
-    <Container size="lg" padding="sm">
-      <AboutHero />
-      <AboutContent />
-      <AboutCTA />
+    <Container size="xl" padding="md">
+      <Stack direction="vertical" spacing="xl">
+        <AboutHero />
+        <AboutContent />
+        <AboutFolderStructure />
+        <AboutComponentExamples />
+        <AboutBenefits />
+        <AboutArchitecture />
+        <AboutUsageGuide />
+        <AboutCTA />
+      </Stack>
     </Container>
   );
 }
