@@ -5,31 +5,31 @@ import Button from '@/components/ui/Button';
 
 export default function HomeProjectInfo() {
   const leftFeatures = [
-    'Next.js 15 with App Router',
-    'TypeScript for type safety', 
-    'Tailwind CSS for styling',
-    'Reusable UI components'
+    '100% Beef Patties',
+    'Fresh Lettuce & Tomatoes', 
+    'Artisan Buns Baked Daily',
+    'Secret Signature Sauce'
   ];
   
   const rightFeatures = [
-    'Custom React hooks',
-    'Utility functions',
-    'Organized file structure', 
-    'Modern development patterns'
+    'Multiple Locations',
+    'Drive-Thru Service',
+    'Online Ordering', 
+    'Catering Available'
   ];
 
   return (
     <Stack direction="vertical" spacing="xl">
       {/* Action Buttons */}
       <Stack direction="horizontal" spacing="md" justify="center" wrap>
-        <Link href="/about">
+        <Link href="/menu">
           <Button variant="primary" size="lg">
-            Learn More
+            View Menu
           </Button>
         </Link>
-        <Link href="/contact">
+        <Link href="/locations">
           <Button variant="secondary" size="lg">
-            Get in Touch
+            Find Location
           </Button>
         </Link>
       </Stack>
@@ -37,7 +37,7 @@ export default function HomeProjectInfo() {
       {/* Project Features */}
       <Card variant="elevated" padding="lg" className="bg-secondary">
         <Heading level={2} variant="primary" align="center" className="mb-6">
-          Project Features
+          What Makes Us Special
         </Heading>
         
         <Grid cols={2} gap="lg">

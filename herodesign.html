@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Food Landing Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff8f0; /* soft background for doodle vibe */
+      color: #222;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #ff4d4d, #ff9900);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px #00000030;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .deals-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .deal-card {
+      background: #fff;
+      color: #222;
+      border: 3px dashed #ff4d4d; /* doodle-style border */
+      border-radius: 20px;
+      width: 250px;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 5px 5px #00000020;
+      transition: transform 0.2s;
+    }
+
+    .deal-card:hover {
+      transform: scale(1.05);
+    }
+
+    .deal-card img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .deal-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .deal-card p {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .deal-btn {
+      display: inline-block;
+      background: #ff4d4d;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .deal-btn:hover {
+      background: #cc0000;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>🔥 Top Deals That Steal Your Hunger 🔥</h1>
+    <p>Fresh, Fast & Flavorful – Order Now</p>
+
+    <div class="deals-container">
+      <!-- Deal 1 -->
+      <div class="deal-card">
+        <img src="burger-deal.jpg" alt="Burger Combo">
+        <h3>Double Trouble Burger</h3>
+        <p>Two juicy burgers + fries + drink at a killer price!</p>
+        <a href="#" class="deal-btn">Order Now</a>
+      </div>
+
+      <!-- Deal 2 -->
+      <div class="deal-card">
+        <img src="fries-deal.jpg" alt="Loaded Fries">
+        <h3>Cheesy Loaded Fries</h3>
+        <p>A mountain of fries topped with cheese & love ❤️</p>
+        <a href="#" class="deal-btn">Order Now</a>
+      </div>
+
+      <!-- Deal 3 -->
+      <div class="deal-card">
+        <img src="dessert-deal.jpg" alt="Brownie Dessert">
+        <h3>Brownie Blast</h3>
+        <p>Hot fudge brownie + ice cream, the perfect ending!</p>
+        <a href="#" class="deal-btn">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
