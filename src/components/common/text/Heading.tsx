@@ -1,4 +1,4 @@
-import { ReactNode, createElement } from 'react';
+import { ReactNode } from 'react';
 
 interface HeadingProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -40,5 +40,11 @@ export default function Heading({
   
   const combinedClasses = `${baseClasses} ${sizeClasses[level]} ${variantClasses[variant]} ${alignClasses[align]} ${className}`;
   
-  return createElement(`h${level}` as any, { className: combinedClasses }, children);
+  const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements;
+  
+  return (
+    <HeadingTag className={combinedClasses}>
+      {children}
+    </HeadingTag>
+  );
 }

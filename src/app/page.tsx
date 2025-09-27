@@ -1,13 +1,12 @@
-import BoomerangHero from '@/components/pages/home/BoomerangHero';
-import BoomerangMenu from '@/components/pages/home/BoomerangMenu';
-import BoomerangAbout from '@/components/pages/home/BoomerangAbout';
+import { Container } from '@/components/common/layout';
+import { HomeHero, HomeFeaturesGrid, HomeProjectInfo } from '@/components/pages/home';
 
 export default function Home() {
   return (
-    <>
-      <BoomerangHero />
-      <BoomerangMenu />
-      <BoomerangAbout />
-    </>
+    <Container size="lg" padding="md">
+      <HomeHero />
+      <HomeFeaturesGrid />
+      <HomeProjectInfo />
+    </Container>
   );
 }

@@ -51,14 +51,14 @@ export function Sidebar() {
               About
             </Link>
             <Link
-              href=\"/menu\"
+              href=\"/services\"
               className=\"block px-3 py-2 rounded-md hover:bg-gray-100\"
               onClick={() => setSidebarOpen(false)}
             >
-              Menu
+              Services
             </Link>
             <Link
-              href=\"/locations\"
+              href=\"/portfolio\"
               className=\"block px-3 py-2 rounded-md hover:bg-gray-100\"
               onClick={() => setSidebarOpen(false)}
             >
