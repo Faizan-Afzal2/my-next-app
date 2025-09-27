@@ -2,52 +2,62 @@
 
 /* Define custom colors using Tailwind v4 approach */
 @theme {
-  /* Light theme (default) */
-  --color-primary: #8b5cf6;
+  /* Boomerang Pakistan Space Theme Colors */
+  --color-space-purple: #2E1065;
+  --color-cosmic-pink: #E91E63;
+  --color-space-navy: #1a1844;
+  --color-star-white: #ffffff;
+  --color-cosmic-cream: #faf9f6;
+  --color-nebula-light: #6366f1;
+  --color-asteroid-gray: #64748b;
+  
+  /* Primary theme mappings */
+  --color-primary: #2E1065;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #f1f5f9;
-  --color-secondary-foreground: #0f172a;
-  --color-muted: #f8fafc;
+  --color-secondary: #E91E63;
+  --color-secondary-foreground: #ffffff;
+  --color-muted: #f1f5f9;
   --color-muted-foreground: #64748b;
-  --color-accent: #c084fc;
-  --color-accent-foreground: #0f172a;
+  --color-accent: #6366f1;
+  --color-accent-foreground: #ffffff;
   --color-destructive: #ef4444;
   --color-destructive-foreground: #ffffff;
   --color-border: #e2e8f0;
-  --color-input: #e2e8f0;
-  --color-ring: #8b5cf6;
-  --color-background: #f8fafc;
-  --color-foreground: #020617;
+  --color-input: #f8fafc;
+  --color-ring: #E91E63;
+  --color-background: #ffffff;
+  --color-foreground: #1a1844;
   --color-card: #ffffff;
-  --color-card-foreground: #020617;
+  --color-card-foreground: #1a1844;
   --color-popover: #ffffff;
-  --color-popover-foreground: #020617;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-popover-foreground: #1a1844;
+  --font-heading: var(--font-fredoka);
+  --font-body: var(--font-space-grotesk);
+  --font-accent: var(--font-orbitron);
 }
 
 
-/* Dark theme colors */
+/* Space theme dark mode */
 .dark {
-  --color-primary: #8b5cf6;
+  --color-primary: #6366f1;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #1e293b;
-  --color-secondary-foreground: #e2e8f0;
-  --color-muted: #334155;
-  --color-muted-foreground: #cbd5e1;
-  --color-accent: #94a3b8;
+  --color-secondary: #E91E63;
+  --color-secondary-foreground: #ffffff;
+  --color-muted: #1a1844;
+  --color-muted-foreground: #94a3b8;
+  --color-accent: #E91E63;
   --color-accent-foreground: #ffffff;
   --color-destructive: #f87171;
-  --color-destructive-foreground: #1e293b;
-  --color-border: #475569;
-  --color-input: #334155;
-  --color-ring: #8b5cf6;
-  --color-background: #0f172a;
-  --color-foreground: #f1f5f9;
-  --color-card: #1e293b;
-  --color-card-foreground: #f1f5f9;
-  --color-popover: #1e293b;
-  --color-popover-foreground: #f1f5f9;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #334155;
+  --color-input: #1e293b;
+  --color-ring: #E91E63;
+  --color-background: #0f0f23;
+  --color-foreground: #f8fafc;
+  --color-card: #1a1844;
+  --color-card-foreground: #f8fafc;
+  --color-popover: #1a1844;
+  --color-popover-foreground: #f8fafc;
 }
 
 :root {
@@ -64,7 +74,7 @@
   }
 }
 
-/* Custom animations */
+/* Space-themed animations */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -94,6 +104,37 @@
   }
 }
 
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scale(0.8);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(50px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(50px) rotate(-360deg);
+  }
+}
+
+@keyframes cosmic-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out forwards;
 }
@@ -104,6 +145,18 @@
 
 .animate-float-delayed {
   animation: float-delayed 8s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbit 20s linear infinite;
+}
+
+.animate-cosmic-pulse {
+  animation: cosmic-pulse 3s ease-in-out infinite;
 }
 
 /* Grid pattern */
@@ -130,6 +183,49 @@
 @tailwind utilities;
 
 @layer utilities {
+  /* Space-themed backgrounds */
+  .bg-space-gradient {
+    background: linear-gradient(135deg, #2E1065 0%, #1a1844 50%, #0f0f23 100%);
+  }
+  
+  .bg-cosmic-gradient {
+    background: linear-gradient(45deg, #E91E63 0%, #6366f1 100%);
+  }
+  
+  .bg-nebula-gradient {
+    background: radial-gradient(ellipse at center, #6366f1 0%, #2E1065 50%, #1a1844 100%);
+  }
+  
+  /* Space-themed text effects */
+  .text-cosmic {
+    background: linear-gradient(45deg, #E91E63, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+  
+  /* Stars pattern */
+  .bg-stars {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+      radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+      radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+      radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+      radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+  }
+  
+  /* Cosmic border styles */
+  .border-cosmic {
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #E91E63, #6366f1) 1;
+  }
+  
   .animate-marquee-left {
     animation: marquee-left 40s linear infinite;
   }

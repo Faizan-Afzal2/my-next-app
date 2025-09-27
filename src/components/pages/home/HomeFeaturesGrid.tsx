@@ -4,19 +4,19 @@ import { Grid, Card } from '@/components/common/layout';
 export default function HomeFeaturesGrid() {
   const features = [
     {
-      icon: '📁',
-      title: 'Organized Structure',
-      description: 'Learn industry-standard folder organization and component architecture patterns.'
+      icon: '🍟',
+      title: 'Fresh Ingredients',
+      description: 'We use only the freshest, locally-sourced ingredients to create our delicious burgers and sides.'
     },
     {
-      icon: '🎨', 
-      title: 'Modern Styling',
-      description: 'Master Tailwind CSS and responsive design principles for beautiful UIs.'
+      icon: '⚡', 
+      title: 'Fast Service',
+      description: 'Quick preparation without compromising quality. Get your meal in minutes, not hours.'
     },
     {
-      icon: '⚡',
-      title: 'Best Practices', 
-      description: 'Implement TypeScript, custom hooks, and reusable components effectively.'
+      icon: '🚗',
+      title: 'Drive-Thru Available', 
+      description: 'Convenient drive-thru service at most locations for when you\'re on the go.'
     }
   ];
 

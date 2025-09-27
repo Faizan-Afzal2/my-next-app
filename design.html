@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CraveBite — Landing Page Concept</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-grad: linear-gradient(135deg,#3b0d0d 0%, #5c1020 50%, #0b0b0b 100%);
+      --accent: #ffb84d;
+      --muted: #bdb7b0;
+      --card: rgba(255,255,255,0.03);
+      --glass: rgba(255,255,255,0.06);
+      --shadow: 0 8px 30px rgba(0,0,0,0.45);
+      --radius: 14px;
+      --maxwidth: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#fff;
+      background: var(--bg-grad);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.3;
+    }
+    .wrap{max-width:var(--maxwidth);margin:32px auto;padding:24px}
+    header{display:flex;align-items:center;gap:18px;margin-bottom:22px}
+    .logo {
+      width:74px;height:74px;border-radius:12px;background:var(--glass);
+      display:flex;align-items:center;justify-content:center;overflow:hidden;padding:8px;box-shadow:var(--shadow)
+    }
+    .logo img{width:100%;height:100%;object-fit:contain}
+    .brand h1{margin:0;font-size:20px;letter-spacing:0.6px}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
+    /* Hero / deals */
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+      border-radius: var(--radius);
+      padding:18px;
+      display:flex;
+      gap:20px;
+      align-items:center;
+      box-shadow: var(--shadow);
+      margin-bottom:24px;
+    }
+    .hero-left{flex:1;min-width:0}
+    .hero-right{width:360px;display:flex;flex-direction:column;gap:12px;align-items:center}
+    .kicker{display:inline-block;background:rgba(0,0,0,0.35);padding:6px 10px;border-radius:999px;font-weight:600;color:var(--accent);font-size:13px}
+    .hero h2{margin:8px 0 6px;font-size:28px}
+    .hero p{margin:0;color:var(--muted)}
+    /* Deals carousel */
+    .deals {display:flex;gap:12px;overflow:hidden;padding-top:14px}
+    .deal-card{
+      min-width:240px;background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.45);
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .deal-photo{height:120px;border-radius:10px;overflow:hidden;background:#222;display:flex;align-items:center;justify-content:center}
+    .deal-photo img{width:100%;height:100%;object-fit:cover}
+    .deal-name{font-weight:700}
+    .deal-cta{margin-top:auto;display:flex;gap:8px}
+    .btn{background:var(--accent);border:none;padding:10px 12px;border-radius:10px;font-weight:700;cursor:pointer;color:#1a0a00}
+    .btn.ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.06)}
+    /* Illustration */
+    .illustration{
+      width:100%;
+      border-radius:12px;overflow:hidden;padding:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .illustration img{max-width:100%;height:230px;object-fit:contain}
+    /* Menu */
+    .menu {
+      margin-top:28px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.12), transparent);
+      padding:18px;border-radius:var(--radius);box-shadow:var(--shadow)
+    }
+    .menu-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    .tab{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:999px;cursor:pointer;color:var(--muted)
+    }
+    .tab.active{background:#fff;color:#200; font-weight:600}
+    .category{
+      margin-top:8px;
+      display:grid;
+      grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+      gap:14px;
+    }
+    .item-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+      display:flex;gap:12px;align-items:center;
+    }
+    .item-photo{width:88px;height:76px;border-radius:10px;overflow:hidden;background:#2a2a2a;flex-shrink:0}
+    .item-photo img{width:100%;height:100%;object-fit:cover}
+    .item-info{flex:1;min-width:0}
+    .item-info h4{margin:0;font-size:16px}
+    .item-info p{margin:6px 0 0;color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .price{font-weight:700;color:var(--accent);margin-top:6px}
+    .addbtn{background:#fff;padding:8px 10px;border-radius:10px;border:none;font-weight:700;color:#2a0a00;cursor:pointer}
+    /* Sticky cart */
+    .cart {
+      position:fixed;right:20px;top:120px;width:320px;background:rgba(0,0,0,0.6);padding:12px;border-radius:16px;box-shadow:var(--shadow);
+      display:flex;flex-direction:column;gap:10px;z-index:1200;
+      max-height:70vh;overflow:auto;
+    }
+    .cart h3{margin:0}
+    .cart-empty{color:var(--muted);font-size:14px;padding:16px;text-align:center}
+    .cart-row{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+    .qty{display:flex;align-items:center;gap:6px}
+    .qty button{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#fff;padding:6px 8px;border-radius:6px;cursor:pointer}
+    .send-whatsapp{background:#25D366;color:#052b14;padding:10px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+    /* floating whatsapp quick */
+    .whats-float{position:fixed;right:28px;bottom:28px;background:#25D366;padding:12px;border-radius:999px;box-shadow:0 10px 30px rgba(37,211,102,0.15);display:flex;align-items:center;gap:10px;cursor:pointer}
+    .whats-float img{width:22px}
+    /* responsive */
+    @media (max-width:900px){
+      .hero{flex-direction:column;align-items:stretch}
+      .hero-right{width:100%}
+      .cart{display:none}
+    }
+    /* small decorative doodles */
+    .doodle{opacity:0.12;position:absolute;z-index:0;pointer-events:none}
+  </style>
+</head>
+<body>
+  <!-- optional decorative doodle -->
+  <svg class="doodle" style="right:0;top:0;width:320px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ffb84d"/><stop offset="1" stop-color="#ff6b6b"/></linearGradient></defs><g transform="translate(0,0)"><circle cx="40" cy="40" r="40" fill="url(#g)"/></g></svg>
+
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <!-- Replace 'Logo.jpg' with actual logo file -->
+        <img src="Logo.jpg" alt="logo" onerror="this.src='https://via.placeholder.com/120x120?text=Logo'">
+      </div>
+      <div class="brand">
+        <h1>CraveBite • Lahore</h1>
+        <p>Fast. Fun. Desi-flavoured.</p>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Top deals and hero">
+      <div class="hero-left">
+        <span class="kicker">Top Deals</span>
+        <h2>Deals that steal your hunger — and your heart</h2>
+        <p>Limited-time combos, packed with flavour. Tap any deal to order instantly via WhatsApp.</p>
+
+        <div class="deals" id="deals">
+          <!-- Deal cards populated in JS for demo, can be static -->
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div style="width:100%" class="illustration">
+          <!-- Replace 'illustration.png' with the provided illustration -->
+          <img src="illustration.png" alt="illustration" onerror="this.src='https://via.placeholder.com/600x260?text=Illustration'">
+        </div>
+        <div style="width:100%;display:flex;justify-content:space-between;align-items:center">
+          <div style="font-size:13px;color:var(--muted)">Open: 12:00 PM — 12:00 AM</div>
+          <div style="font-size:13px;color:var(--muted)">Call: <strong id="phone">+92 300 0000000</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu" id="menu">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div>
+          <h3 style="margin:0">Full Menu</h3>
+          <p style="margin:4px 0 0;color:var(--muted);font-size:13px">Tap items to add to your quick order, then send it in one click.</p>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn ghost" onclick="scrollToDeals()">Top Deals</button>
+          <button class="btn" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Browse Menu</button>
+        </div>
+      </div>
+
+      <!-- tabs -->
+      <div class="menu-tabs" id="tabs"></div>
+
+      <!-- categories -->
+      <div id="categories">
+        <!-- populated with JS -->
+      </div>
+    </section>
+
+    <!-- small footer -->
+    <footer style="margin-top:24px;text-align:center;color:var(--muted);font-size:13px">
+      Made with ❤️ for local flavours • Replace placeholders with real assets before pitching
+    </footer>
+  </div>
+
+  <!-- Sticky cart (hidden on small) -->
+  <aside class="cart" id="cart">
+    <h3>Your Quick Order</h3>
+    <div id="cart-items">
+      <div class="cart-empty">No items yet — add your cravings!</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px">
+      <div style="font-weight:700" id="cart-total">Total: PKR 0</div>
+      <button class="send-whatsapp" id="send-ws">Send via WhatsApp</button>
+    </div>
+  </aside>
+
+  <!-- Floating WhatsApp quick button -->
+  <div class="whats-float" onclick="document.getElementById('send-ws').click()" title="Quick order via WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="whats" />
+    <div style="font-weight:700;color:#052b14">Order Now</div>
+  </div>
+
+  <script>
+    // Demo data - replace or extend with the restaurant's real menu
+    const DATA = {
+      phone: '+923001234567',
+      deals: [
+        { id: 'd1', name:'Double Trouble Burger Combo', price: 650, img:'https://images.unsplash.com/photo-1550547660-d9450f859349?&auto=format&fit=crop&w=800&q=60', desc:'2x patties, fries & drink' },
+        { id: 'd2', name:'Fiery Desi Fries', price: 280, img:'https://images.unsplash.com/photo-1562967916-eb82221dfb36?&auto=format&fit=crop&w=800&q=60', desc:'Seasoned with house masala' },
+        { id: 'd3', name:'Choco Lava Brownie', price: 180, img:'https://images.unsplash.com/photo-1606755962777-6ff40b6d4a37?&auto=format&fit=crop&w=800&q=60', desc:'Molten center, served hot' },
+      ],
+      categories: [
+        { key:'burgers', title:'Burgers', items:[
+          { id:'b1', name:'Classic Beef Burger', price: 350, img:'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?&auto=format&fit=crop&w=800&q=60', desc:'Juicy patty, house sauce' },
+          { id:'b2', name:'Spicy Chicken Burger', price: 320, img:'https://images.unsplash.com/photo-1604908177522-7f2cf4be1d7d?&auto=format&fit=crop&w=800&q=60', desc:'Crispy, spicy, delicious' },
+          { id:'b3', name:'Veggie Delight', price: 280, img:'https://images.unsplash.com/photo-1544025162-d76694265947?&auto=format&fit=crop&w=800&q=60', desc:'Charred veg patty & greens' },
+        ]},
+        { key:'fries', title:'Fries & Sides', items:[
+          { id:'f1', name:'Crispy Golden Fries', price: 150, img:'https://images.unsplash.com/photo-1544025162-d76694265947?&auto=format&fit=crop&w=800&q=60', desc:'Perfectly salted' },
+          { id:'f2', name:'Masala Fries', price: 180, img:'https://images.unsplash.com/photo-1525755662778-989d0524087e?&auto=format&fit=crop&w=800&q=60', desc:'Tossed in special spices' },
+        ]},
+        { key:'desserts', title:'Desserts', items:[
+          { id:'ds1', name:'Brownie Sundae', price: 220, img:'https://images.unsplash.com/photo-1606755962777-6ff40b6d4a37?&auto=format&fit=crop&w=800&q=60', desc:'Brownie, ice cream, sauce' },
+          { id:'ds2', name:'Gulab Jamun Cheesecake', price: 260, img:'https://images.unsplash.com/photo-1563805042-7684c019e1cb?&auto=format&fit=crop&w=800&q=60', desc:'Desi twist on a classic' },
+        ]},
+        { key:'drinks', title:'Drinks', items:[
+          { id:'dr1', name:'Mint Lemonade', price: 120, img:'https://images.unsplash.com/photo-1551024709-8f23befc6f87?&auto=format&fit=crop&w=800&q=60', desc:'Fresh & zesty' },
+          { id:'dr2', name:'Cold Coffee', price: 160, img:'https://images.unsplash.com/photo-1526318472351-c75fcf070bf9?&auto=format&fit=crop&w=800&q=60', desc:'Creamy & chilled' },
+        ]},
+      ]
+    };
+
+    // Setup phone display
+    document.getElementById('phone').innerText = DATA.phone;
+    // Render deals
+    const dealsEl = document.getElementById('deals');
+    DATA.deals.forEach(d => {
+      const el = document.createElement('div');
+      el.className = 'deal-card';
+      el.innerHTML = `
+        <div class="deal-photo"><img src="${d.img}" alt="${d.name}"></div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div class="deal-name">${d.name}</div>
+          <div style="color:var(--muted);font-size:13px">${d.desc}</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+            <div style="font-weight:700;color:var(--accent)">PKR ${d.price}</div>
+            <div class="deal-cta">
+              <button class="btn" onclick="addToCart('${d.id}','${d.name}',${d.price})">Add</button>
+              <button class="btn ghost" onclick="quickWhats('${d.name}',${d.price})">Order</button>
+            </div>
+          </div>
+        </div>
+      `;
+      dealsEl.appendChild(el);
+    });
+
+    // Render tabs and categories
+    const tabsEl = document.getElementById('tabs');
+    const categoriesEl = document.getElementById('categories');
+    DATA.categories.forEach((cat, idx) => {
+      const t = document.createElement('button');
+      t.className = 'tab' + (idx===0?' active':'');
+      t.innerText = cat.title;
+      t.onclick = () => {
+        document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+        t.classList.add('active');
+        document.querySelectorAll('.category').forEach(c=>c.style.display='none');
+        document.getElementById('cat-'+cat.key).style.display='grid';
+        window.scrollTo({top: document.getElementById('cat-'+cat.key).offsetTop - 120, behavior:'smooth'});
+      };
+      tabsEl.appendChild(t);
+
+      // category container
+      const catWrap = document.createElement('div');
+      catWrap.id = 'cat-'+cat.key;
+      catWrap.className = 'category';
+      if(idx!==0) catWrap.style.display='none';
+      cat.items.forEach(it => {
+        const ic = document.createElement('div');
+        ic.className = 'item-card';
+        ic.innerHTML = `
+          <div class="item-photo"><img src="${it.img}" alt="${it.name}"></div>
+          <div class="item-info">
+            <h4>${it.name}</h4>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <p>${it.desc}</p>
+                <div class="price">PKR ${it.price}</div>
+              </div>
+              <div style="margin-left:8px">
+                <button class="addbtn" onclick="addToCart('${it.id}','${it.name}',${it.price})">Add</button>
+              </div>
+            </div>
+          </div>
+        `;
+        catWrap.appendChild(ic);
+      });
+      categoriesEl.appendChild(catWrap);
+    });
+
+    // Simple cart state
+    const CART = {};
+    function addToCart(id,name,price){
+      if(CART[id]) CART[id].qty += 1;
+      else CART[id] = { id, name, price, qty: 1 };
+      renderCart();
+    }
+    function removeFromCart(id){
+      delete CART[id];
+      renderCart();
+    }
+    function changeQty(id,delta){
+      if(!CART[id]) return;
+      CART[id].qty += delta;
+      if(CART[id].qty <= 0) removeFromCart(id);
+      renderCart();
+    }
+    function renderCart(){
+      const container = document.getElementById('cart-items');
+      container.innerHTML = '';
+      const items = Object.values(CART);
+      if(items.length===0){
+        container.innerHTML = '<div class="cart-empty">No items yet — add your cravings!</div>';
+        document.getElementById('cart-total').innerText = 'Total: PKR 0';
+        return;
+      }
+      let total = 0;
+      items.forEach(it=>{
+        total += it.price * it.qty;
+        const row = document.createElement('div');
+        row.className = 'cart-row';
+        row.innerHTML = `
+          <div style="min-width:0">
+            <div style="font-weight:700">${it.name}</div>
+            <div style="color:var(--muted);font-size:13px">PKR ${it.price} × ${it.qty}</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty('${it.id}',-1)">−</button>
+            <div style="padding:6px 8px;border-radius:6px">${it.qty}</div>
+            <button onclick="changeQty('${it.id}',1)">+</button>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+      document.getElementById('cart-total').innerText = `Total: PKR ${total}`;
+    }
+
+    // WhatsApp message creation
+    function quickWhats(itemName,price){
+      const phone = encodeURIComponent(DATA.phone.replace('+',''));
+      const msg = encodeURIComponent(`Hi! I want to order: ${itemName} — PKR ${price}. Please confirm payment & delivery time.\n\nName:\nAddress:\nPhone:`);
+      const url = `https://wa.me/${phone}?text=${msg}`;
+      window.open(url,'_blank');
+    }
+
+    document.getElementById('send-ws').addEventListener('click', ()=>{
+      const items = Object.values(CART);
+      if(items.length===0){ alert('Add items first!'); return; }
+      let text = 'Hi! I want to place an order:%0A';
+      let total = 0;
+      items.forEach(it=>{
+        text += `- ${it.name} x${it.qty} = PKR ${it.price * it.qty}%0A`;
+        total += it.price * it.qty;
+      });
+      text += `%0ATotal = PKR ${total}%0A%0AName:%0AAddress:%0APhone:%0A`;
+      const phone = DATA.phone.replace('+','');
+      const url = `https://wa.me/${encodeURIComponent(phone)}?text=${text}`;
+      window.open(url,'_blank');
+    });
+
+    // simple helper
+    function scrollToDeals(){ document.querySelector('.deals').scrollIntoView({behavior:'smooth'}); }
+
+    // init: hide cart on tiny screens (already in CSS) and ensure first tab shown
+    renderCart();
+
+    // Accessibility: keyboard add to cart with Enter on buttons (browsers do it by default)
+  </script>
+</body>
+</html>

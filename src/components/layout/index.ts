@@ -11,6 +11,6 @@
  * - Manage layout state and user interactions
  */
 
-export { Header } from './Header';
-export { Footer } from './Footer';
+export { default as Header } from './Header';
+export { default as Footer } from './Footer';
 export { Sidebar } from './sidebar';
